@@ -6,37 +6,37 @@ const age = Math.floor(
 
 const socials: { platform: string; url: string; username: string }[] = [
     {
-        platform: "bsky",
+        platform: "Bluesky",
         url: "https://bsky.app/profile/did:plc:c3eyz3zd3bcnb6yuiylfaexo",
         username: "@luvsick.gg",
     },
     {
-        platform: "github",
+        platform: "GitHub",
         url: "https://github.com/luvsickgg",
         username: "@luvsickgg",
     },
     {
-        platform: "codeberg",
+        platform: "Codeberg",
         url: "https://codeberg.org/luvsick",
         username: "@luvsick",
     },
     {
-        platform: "steam",
+        platform: "Steam",
         url: "https://steamcommunity.com/id/luvsickgg",
         username: "id/luvsickgg",
     },
     {
-        platform: "signal",
+        platform: "Signal",
         url: "https://signal.me/#eu/s5AaMe2FPqNiKcbrP71wH7S9aUddKAYmckvX7cMfEe53oCbBj2hHSo5ELtuFV8dG",
         username: "@luvsick.01",
     },
     {
-        platform: "discord",
+        platform: "Discord",
         url: "https://discord.com/users/293020630608248832",
         username: "@luvsick.gg",
     },
     {
-        platform: "email",
+        platform: "Email",
         url: "mailto:hi@luvsick.gg",
         username: "hi@luvsick.gg",
     },
@@ -46,7 +46,7 @@ const servers: { name: string; specs: string; purpose: string }[] = [
     {
         name: "lumi",
         specs: "France, NixOS 25.05 (Unstable), 4 Cores, 8GB RAM, 400Mbps",
-        purpose: "primary server for everything",
+        purpose: "personal infra & networking lab",
     },
 ];
 
@@ -56,187 +56,154 @@ const domains: string[] = ["luvsick.gg"];
 </script>
 
 <template>
-    <div
-        class="min-h-screen bg-[#0b1020] text-[#e6eef6] antialiased py-9 px-5 flex justify-center items-start"
-        style="
-            background-image:
-                radial-gradient(
-                    1200px 600px at 10% 10%,
-                    rgba(139, 92, 246, 0.07),
-                    transparent
-                ),
-                radial-gradient(
-                    1000px 500px at 90% 90%,
-                    rgba(6, 182, 212, 0.04),
-                    transparent
-                );
-        "
-    >
-        <main class="w-full max-w-[920px] grid grid-cols-1 gap-5">
-            <section
-                class="p-5 bg-white/[0.03] rounded-xl border border-white/[0.02] sm:p-4"
-            >
-                <h1 class="m-0 text-2xl mb-2">luvsick.gg</h1>
-                <p class="m-0 mb-[14px] text-white/60 text-[13px]">
-                    hiya! i'm a {{ age }} year old student and aspiring software
-                    developer. lately i've been diving into digital privacy,
-                    open source, security, and transparency. i'm also into
-                    playing with infrastructure and self-hosting, as well as
-                    playing with modern tech.
+    <div class="min-h-screen bg-white text-gray-900">
+        <div class="max-w-2xl mx-auto px-6 py-16">
+            <header class="mb-4">
+                <h1 class="text-3xl font-bold mb-4">luvsick.gg</h1>
+                <p class="text-lg text-gray-600 leading-relaxed">
+                    {{ age }}y/o software engineering student.
                 </p>
-                <p class="mt-3 mb-0 text-white/60 text-[13px] leading-6">
-                    you'll probably also find me playing some games, listening
-                    to music, messing with my dotfiles, or just existing on the
-                    internet.
-                </p>
-            </section>
+            </header>
 
-            <section
-                id="online"
-                class="p-5 bg-white/[0.03] rounded-xl border border-white/[0.02] sm:p-4"
-            >
-                <h2 class="m-0 mb-2 text-base">online</h2>
-                <p class="m-0 mb-[14px] text-white/60 text-[13px]">
-                    i'm around on a few platforms, feel free to say hi!
-                </p>
+            <main class="space-y-12">
+                <section>
+                    <div class="space-y-4 text-gray-600 leading-relaxed">
+                        <p>
+                            I have a thing for digital privacy, open source,
+                            transparency, playing with modern tech and infra.
+                        </p>
+                        <p>
+                            You'll probably also find me playing games,
+                            listening to music, tinkering my dotfiles, learning
+                            new things, or just existing online.
+                        </p>
+                    </div>
+                </section>
 
-                <ul
-                    class="list-none p-0 m-0 grid grid-cols-[repeat(auto-fit,minmax(200px,1fr))] gap-3 max-[480px]:grid-cols-1"
-                >
-                    <li
-                        v-for="social in socials"
-                        :key="social.platform"
-                        class="bg-gradient-to-b from-white/[0.01] to-white/[0.005] p-3 rounded-[10px] border border-white/[0.02] min-w-0"
-                    >
+                <section>
+                    <h2 class="text-xl font-semibold mb-6 text-gray-900">
+                        Say hi!
+                    </h2>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                         <a
+                            v-for="social in socials"
+                            :key="social.platform"
                             :href="social.url"
-                            rel="noopener noreferrer"
                             target="_blank"
-                            class="flex gap-3 items-center no-underline text-inherit min-w-0"
+                            rel="noopener noreferrer"
+                            class="group block p-4 border border-gray-200 rounded-lg hover:border-gray-300 transition-colors"
                         >
-                            <div class="min-w-0 flex-1 flex flex-col gap-[2px]">
-                                <span class="font-semibold text-sm">{{
-                                    social.platform
-                                }}</span>
-                                <em
-                                    class="text-white/60 not-italic text-[13px] overflow-hidden text-ellipsis whitespace-nowrap"
-                                    >{{ social.username }}</em
+                            <div class="flex items-center justify-between">
+                                <div>
+                                    <div class="font-semibold text-gray-900">
+                                        {{ social.platform }}
+                                    </div>
+                                    <div class="text-sm text-gray-500">
+                                        {{ social.username }}
+                                    </div>
+                                </div>
+                                <svg
+                                    class="w-4 h-4 text-gray-400 group-hover:text-gray-600 transition-colors"
+                                    fill="none"
+                                    stroke="currentColor"
+                                    viewBox="0 0 24 24"
                                 >
+                                    <path
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                        stroke-width="2"
+                                        d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
+                                    />
+                                </svg>
                             </div>
-                            <svg
-                                class="w-4 h-4 text-white/40 flex-shrink-0"
-                                fill="none"
-                                stroke="currentColor"
-                                viewBox="0 0 24 24"
-                                xmlns="http://www.w3.org/2000/svg"
-                            >
-                                <path
-                                    stroke-linecap="round"
-                                    stroke-linejoin="round"
-                                    stroke-width="2"
-                                    d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
-                                ></path>
-                            </svg>
                         </a>
-                    </li>
-                </ul>
-            </section>
+                    </div>
+                </section>
 
-            <section
-                class="p-5 bg-white/[0.03] rounded-xl border border-white/[0.02] sm:p-4"
-            >
-                <div class="flex items-center justify-between mb-2">
-                    <h2 class="m-0 text-base">luvsicknet</h2>
-                    <NuxtLink
-                        v-if="asn"
-                        :to="`https://bgp.tools/as/${asn.replace('AS', '')}`"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        class="bg-gradient-to-r from-violet-500/20 to-cyan-500/20 px-4 py-2 rounded-lg border border-violet-400/40 shadow-lg shadow-violet-500/10 hover:from-violet-500/30 hover:to-cyan-500/30 hover:border-violet-400/60 transition-all duration-200 no-underline"
-                    >
-                        <span
-                            class="text-[12px] font-mono font-bold text-violet-200"
-                            >{{ asn }}</span
+                <section>
+                    <div class="flex items-center justify-between mb-6">
+                        <h2 class="text-xl font-semibold text-gray-900">
+                            Infrastructure
+                        </h2>
+                        <NuxtLink
+                            v-if="asn"
+                            :to="`https://bgp.tools/as/${asn.replace('AS', '')}`"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="px-3 py-1 text-sm font-mono bg-gray-100 rounded border hover:bg-gray-200 transition-colors"
                         >
-                    </NuxtLink>
-                </div>
-                <p class="m-0 mb-[14px] text-white/60 text-[13px]">
-                    my infrastructure playground where i experiment with
-                    self-hosting, and networking.
-                </p>
-
-                <div class="mt-2">
-                    <div
-                        class="text-white/60 flex gap-2 items-center mb-3 text-[13px]"
-                    >
-                        <span>currently, i operate</span>
-                        <strong class="text-white">{{ servers.length }}</strong>
-                        <span
-                            >{{
-                                servers.length === 1 ? "server" : "servers"
-                            }}.</span
-                        >
+                            {{ asn }}
+                        </NuxtLink>
                     </div>
 
-                    <ul class="list-none p-0 m-0 grid gap-[10px]">
-                        <li
-                            v-for="server in servers"
-                            :key="server.name"
-                            class="p-3 rounded-[10px] bg-gradient-to-b from-white/[0.01] to-white/[0.005] border border-white/[0.02]"
-                        >
-                            <div class="flex justify-between items-center mb-2">
-                                <div class="font-bold text-[15px]">
-                                    {{ server.name }}
+                    <div class="space-y-8">
+                        <div>
+                            <div class="flex items-center gap-2 mb-4">
+                                <h3 class="font-medium text-gray-900">
+                                    Servers
+                                </h3>
+                                <span class="text-sm text-gray-500"
+                                    >({{ servers.length }})</span
+                                >
+                            </div>
+
+                            <div class="space-y-4">
+                                <div
+                                    v-for="server in servers"
+                                    :key="server.name"
+                                    class="border border-gray-200 rounded-lg p-4"
+                                >
+                                    <div
+                                        class="flex items-center justify-between mb-2"
+                                    >
+                                        <h4 class="text-gray-900 font-semibold">
+                                            {{ server.name }}
+                                        </h4>
+                                    </div>
+                                    <p class="text-sm text-gray-600 mb-3">
+                                        {{ server.purpose }}
+                                    </p>
+                                    <div class="flex flex-wrap gap-2">
+                                        <span
+                                            v-for="(
+                                                spec, index
+                                            ) in server.specs.split(', ')"
+                                            :key="index"
+                                            class="px-2 py-1 text-xs bg-gray-100 rounded text-gray-700"
+                                        >
+                                            {{ spec }}
+                                        </span>
+                                    </div>
                                 </div>
                             </div>
-                            <p class="m-0 mb-3 text-white/60 text-[13px]">
-                                {{ server.purpose }}
-                            </p>
-                            <ul class="list-none p-0 m-0 flex gap-2 flex-wrap">
-                                <li
-                                    v-for="(spec, index) in server.specs.split(
-                                        ', ',
-                                    )"
-                                    :key="index"
-                                    class="text-[13px] text-white/60 bg-white/[0.01] py-[6px] px-2 rounded-lg border border-white/[0.01]"
+                        </div>
+
+                        <div v-if="domains.length">
+                            <div class="flex items-center gap-2 mb-4">
+                                <h3 class="font-medium text-gray-900">
+                                    Domains
+                                </h3>
+                                <span class="text-sm text-gray-500"
+                                    >({{ domains.length }})</span
                                 >
-                                    {{ spec }}
-                                </li>
-                            </ul>
-                        </li>
-                    </ul>
-                </div>
+                            </div>
 
-                <div class="mt-4" v-if="domains.length">
-                    <div
-                        class="text-white/60 flex gap-2 items-center mb-3 text-[13px]"
-                    >
-                        <span>additionally, i control</span>
-                        <strong class="text-white">{{ domains.length }}</strong>
-                        <span
-                            >{{
-                                domains.length === 1
-                                    ? "root domain"
-                                    : "root domains"
-                            }}
-                            at the registry level.</span
-                        >
+                            <div class="flex flex-wrap gap-2">
+                                <NuxtLink
+                                    v-for="domain in domains"
+                                    :key="domain"
+                                    :to="`https://${domain}`"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    class="px-3 py-1 text-sm bg-gray-100 rounded border hover:bg-gray-200 transition-colors font-mono"
+                                >
+                                    {{ domain }}
+                                </NuxtLink>
+                            </div>
+                        </div>
                     </div>
-
-                    <ul class="list-none p-0 m-0 flex gap-2 flex-wrap">
-                        <li v-for="domain in domains" :key="domain">
-                            <NuxtLink
-                                :to="`https://${domain}`"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                class="inline-block text-[13px] font-bold bg-white/[0.01] py-[6px] px-2 rounded-lg border border-white/[0.01] hover:bg-white/[0.02] hover:border-white/[0.02] transition-all duration-200 no-underline text-inherit"
-                            >
-                                {{ domain }}
-                            </NuxtLink>
-                        </li>
-                    </ul>
-                </div>
-            </section>
-        </main>
+                </section>
+            </main>
+        </div>
     </div>
 </template>
