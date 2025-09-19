@@ -11,6 +11,11 @@ const socials: { platform: string; url: string; username: string }[] = [
         username: "@luvsick.gg",
     },
     {
+        platform: "github",
+        url: "https://github.com/luvsickgg",
+        username: "@luvsickgg",
+    },
+    {
         platform: "codeberg",
         url: "https://codeberg.org/luvsick",
         username: "@luvsick",
