@@ -46,7 +46,7 @@ const servers: { name: string; specs: string; purpose: string }[] = [
     {
         name: "lumi",
         specs: "France, NixOS 25.05 (Unstable), 4 Cores, 8GB RAM, 400Mbps",
-        purpose: "personal infra & networking lab",
+        purpose: "Personal infra & networking lab",
     },
 ];
 
