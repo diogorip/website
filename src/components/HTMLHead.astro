@@ -1,0 +1,51 @@
+---
+interface Props {
+	title: string
+	author?: string
+	domain?: string
+	description?: string
+	url: string
+	type?: string
+	image?: string
+	icon: string
+	locale?: string
+	keywords?: string
+}
+
+const p = Astro.props
+---
+
+<meta charset='utf-8' />
+<meta name='viewport' content='width=device-width, initial-scale=1' />
+<link rel='canonical' href={p.url} />
+
+<title>{p.title}</title>
+
+<link rel='icon' href={p.icon} />
+
+{p.keywords && <meta name='keywords' content={p.keywords} />}
+{p.author && <meta name='author' content={p.author} />}
+
+{p.description && (
+<meta name='description' content={p.description} />
+<meta property='og:description' content={p.description} />
+<meta name='twitter:description' content={p.description} />
+)}
+
+<meta name='title' content={p.title} />
+<meta property='og:title' content={p.title} />
+<meta name='twitter:title' content={p.title} />
+
+<meta property='og:image' content={p.image} />
+<meta name='twitter:image' content={p.image} />
+<meta name='twitter:card' content='summary_large_image' />
+
+<meta property='og:url' content={p.url} />
+<meta property='twitter:url' content={p.url} />
+
+<meta property='og:type' content={p.type ?? 'website'} />
+<meta property='og:locale' content={p.locale ?? 'en_US'} />
+{p.domain && <meta property='twitter:domain' content={p.domain} />}
+
+<meta name='robots' content='index, follow' />
+<meta name='generator' content={Astro.generator} />

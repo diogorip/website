@@ -1,0 +1,21 @@
+---
+import HTMLHead from '@components/HTMLHead.astro'
+import '@styles/global.css'
+---
+
+<html>
+	<HTMLHead
+		author='luvsick'
+		description="luvsick's cosy corner on the internet"
+		image='https://cdn.luvsick.gg/og.png'
+		url='https://luvsick.gg'
+		domain='luvsick.gg'
+		icon='https://cdn.luvsick.gg/notobunny.png'
+		keywords=''
+		locale='en_US'
+		title='luvsick.gg'
+	/>
+	<body class='font-mono min-h-screen bg-white text-gray-900'>
+		<slot />
+	</body>
+</html>

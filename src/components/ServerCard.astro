@@ -1,0 +1,30 @@
+---
+import type { Server } from '@lib/types'
+
+interface Props {
+	server: Server
+}
+const { server } = Astro.props
+---
+
+<div class='border border-gray-200 rounded-lg p-4'>
+	<div class='flex items-center justify-between mb-2'>
+		<h4 class='text-gray-900 font-semibold'>
+			{server.name}
+		</h4>
+	</div>
+	<p class='text-sm text-gray-600 mb-3'>
+		{server.purpose}
+	</p>
+	<div class='flex flex-wrap gap-2'>
+		{
+			server.specs.split(', ').map(spec => {
+				return (
+					<span class='px-2 py-1 text-xs bg-gray-100 rounded text-gray-700'>
+						{spec}
+					</span>
+				)
+			})
+		}
+	</div>
+</div>
