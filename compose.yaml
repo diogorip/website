@@ -8,4 +8,4 @@ services:
         order: start-first
       replicas: 1
     ports:
-      - "5757:3000"
+      - "5757:8085"
